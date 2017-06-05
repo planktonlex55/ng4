@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Destructuring Array</title>
+    <script src="lib/traceur.js"></script>
+    <script src="lib/BrowserSystem.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script type="module">
+        /*
+        const heroes = ["Deadpool", "Hulk", "Wolverine"];
+        const [firstHero, secondHero, thirdHero] = heroes;
+        console.log(firstHero, secondHero, thirdHero);
+        */
+        /*
+        var user1 = "Govindraj";
+        var user2 = "Aniketh";
+        var user3 = "Devang";
+        var [u1, u2, u3] = [user1, user2, user3];
+        console.log(u1, u2, u3);
+        */
+        function randomHero(){
+            const hero = {title : "Batman"};
+            const power = 7;
+            /*
+            return {
+                hero,power
+            }
+            */
+            return [hero, power]
+        };
+        /*
+        var data = randomHero()
+        console.log(data.hero.title)
+        */
+        // let {hero : heroObj, power : heroPower} = randomHero();
+        /*
+        let { hero, power } = randomHero();
+        console.log(hero.title);
+        */
+        const [hero, power] = randomHero();
+        console.log(hero.title, power);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

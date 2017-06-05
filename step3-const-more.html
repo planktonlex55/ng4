@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Const more</title>
+    <script>
+        (function(){
+            "use strict"
+
+            /*
+            const branch = "Pune";
+                  branch = "Delhi";// wont work
+            */
+            const company = {
+                    branch : "Pune",
+                    location : "Hinjewadi",
+                    headcount : 2000
+            };
+            company.hasCanteen = true;
+            company.headcount = true;
+            console.log(company);
+        })();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

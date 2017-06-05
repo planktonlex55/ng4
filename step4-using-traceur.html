@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/traceur.js"></script>
+    <script src="lib/BrowserSystem.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script type="module">
+        /*
+       let user = "Sameer";
+       console.log(user);
+        */
+        // Destructuring an object
+        // ES5
+        /*
+        var company = { name : "Synechron", branch : "Pune"};
+        var compName = company.name;
+        var compBranch = company.branch;
+        */
+        // ES6
+        /*
+
+        const compdata = { name : "Synechron", branch : "Pune"};
+        let {name : compName, branch : compBranch} = compdata;
+        console.log(compName, compBranch);
+       */
+
+        // let {name, branch} = compdata;
+        //console.log(name, branch);
+        const hero = {
+            title : "Batman",
+            power : 7,
+            movies : {
+                movie1 : "Batman Begins",
+                movie2 : "The Dark Knight",
+                movie3 : "The Dark Knight Rises"
+            }
+        };
+        /* // with a name
+        const {movies : {movie3 : thirdMovie}} = hero;
+        console.log(thirdMovie);
+         */ // with the same name
+        const {movies : {movie3}} = hero;
+        console.log(movie3);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

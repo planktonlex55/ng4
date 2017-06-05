@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>block scopes with es6</title>
+    <script>
+        (function(){
+            function setCompany(){
+
+                //----------------------------------
+                if(true){
+                    const myBranch = "Pune";
+                        myBranch = "Bangalore"
+                        console.log(myBranch);
+                };
+                //----------------------------------
+            }
+            setCompany();
+        })();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
