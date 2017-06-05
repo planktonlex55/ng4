@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fat Arrow Function</title>
+    <script src="lib/traceur.js"></script>
+    <script src="lib/BrowserSystem.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script type="module">
+        /*
+        function myfun(user){
+            console.log("Hello "+user);
+        };
+       myfun("Vijay");
+        */
+
+        /*
+        var myfun = user => console.log("Hello "+user);
+
+        myfun("Vijay");
+        */
+
+        /*
+        var myfun = (message,user) => console.log(message+" "+user);
+        myfun("Hello","Vijay");
+        */
+
+        /*
+        var myfun = () => console.log("you called myfun");
+        myfun();
+        */
+
+        // Nesting Fat Arrow Functions
+
+        var cart = {
+            saleValue : function () {
+                return 100
+            },
+            calculateTax : function(){
+                var getTaxAmount = function(){
+                    return this.saleValue() * 0.2;
+                }
+                return getTaxAmount()+ this.saleValue();
+            }
+        };
+        console.log(cart.calculateTax());
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

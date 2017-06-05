@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/traceur.js"></script>
+    <script src="lib/BrowserSystem.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script type="module">
+        class Hero{
+            static city(){
+                return "Pune"
+            };
+            /*
+            static get city(){
+                return "Pune"
+            };
+            */
+            constructor(val = 5){
+                console.log("you created a Hero instance");
+                this.name = "Batman";
+                this.power = val;
+                this._secret = "my top secret";
+            }
+            showPower(){
+                console.log("hero power is "+this.power);
+            }
+            get secret(){
+            return this._secret
+            }
+            set secret(newMessage){
+                this._secret = newMessage;
+            }
+        };
+        var hero1 = new Hero(6);
+        var hero2 = new Hero(7);
+        var hero3 = new Hero(8);
+        console.log(hero1.name);
+        hero1.showPower();
+        hero2.showPower();
+        hero3.showPower();
+        console.log(Hero.city());
+        console.log(hero1);
+        console.log(hero1.secret);
+        hero1.secret = "new secret";
+        console.log(hero1.secret);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
