@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Managing Parameters</title>
+    <script src="lib/traceur.js"></script>
+    <script src="lib/BrowserSystem.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script type="module">
+        let actorsinAvengers = [];
+        /*
+
+        function addHero(){
+            console.log();
+            for(var i = 0 ; i < arguments.length; i++){
+                actorsinAvengers.push(arguments[i]);
+            }
+        };
+
+        addHero("Ironman","Black Widow","AntMan", "Spiderman");
+       // addHero();
+        console.log(actorsinAvengers);
+        */
+        function addHero(...heroes){
+            /*
+            for(var i = 0 ; i < heroes.length; i++){
+                actorsinAvengers.push(heroes[i]);
+            }
+            */
+            for( let hero of heroes ){
+                actorsinAvengers.push(hero);
+            }
+        };
+
+        addHero("Ironman","Black Widow","AntMan", "Spiderman");
+        // addHero();
+        console.log(actorsinAvengers);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

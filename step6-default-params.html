@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Default Parameters</title>
+    <script src="lib/traceur.js"></script>
+    <script src="lib/BrowserSystem.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script type="module">
+        /*
+
+        let heroes = {
+            list : [{ title : "Batman", power : 7}],
+            add : function(nTitle, nPower){
+
+                nTitle  = nTitle || "new Hero";
+                nPower  = nPower || 0;
+
+              this.list.push({
+                  title : nTitle,
+                  power : nPower
+              })
+            }
+        };
+
+        console.log(heroes.list.length);
+        heroes.add("Superman", 8);
+        heroes.add();
+        console.log(heroes.list.length);
+        console.log(heroes.list[2]);
+        */
+        let heroes = {
+            list : [{ title : "Batman", power : 7}],
+            add : function(nTitle = "new Hero", nPower = 0){
+                this.list.push({
+                    title : nTitle,
+                    power : nPower
+                })
+            }
+        };
+        console.log(heroes.list.length);
+        heroes.add("Superman", 8);
+        heroes.add(); // creates another hero with default values
+        console.log(heroes.list.length);
+        console.log(heroes.list[2]);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

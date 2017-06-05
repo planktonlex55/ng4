@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/traceur.js"></script>
+    <script src="lib/BrowserSystem.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script type="module">
+
+        /*
+         */
+         var user = ["batman","superman"];
+         var movies = "batman%20begins";
+         var data = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium cum deleniti dignissimos distinctio facilis nihil nulla provident quasi saepe suscipit, tenetur veniam veritatis voluptatum! Adipisci iste provident repudiandae tempore velit?`;
+
+         // var query = "http://google.com/?="+user+"/"+movies;
+         var query = `http://google.com/search?q=${movies}`;
+         window.open(query);
+         /*
+
+        var selectedHero = "superman";
+        var searchSite = "www.google.co.in"
+        window.onload = function(){
+            document.querySelector("h1").innerHTML = `https://${searchSite}/search?q=${selectedHero}`;
+        }
+
+         */
+        window.onload = function(){
+            document.querySelector("pre").innerHTML = data;
+        }
+    </script>
+</head>
+<body>
+<pre></pre>
+</body>
+</html>
