@@ -33,6 +33,36 @@
         // Nesting Fat Arrow Functions
 
         var cart = {
+        saleValue : () => 100,
+        calculateTax : function(){
+            var getTaxAmount =() => this.saleValue() * 0.2;
+            return getTaxAmount()+ this.saleValue();
+        }
+        };
+        console.log(cart.calculateTax());
+
+    </script>
+    <!--script>
+        // call, apply, bind
+        /*
+
+        var cart = {
+            saleValue : function () {
+                return 100
+            },
+            calculateTax : function(){
+                var self = this;
+                var getTaxAmount = function(){
+                    return self.saleValue() * 0.2;
+                }
+                return getTaxAmount()+ this.saleValue();
+            }
+        };
+        console.log(cart.calculateTax());
+        */
+        /*
+
+        var cart = {
             saleValue : function () {
                 return 100
             },
@@ -40,12 +70,14 @@
                 var getTaxAmount = function(){
                     return this.saleValue() * 0.2;
                 }
-                return getTaxAmount()+ this.saleValue();
+                // return getTaxAmount.call(this)+ this.saleValue();
+                // return getTaxAmount.apply(this)+ this.saleValue();
+                return getTaxAmount.bind(this)()+ this.saleValue();
             }
         };
         console.log(cart.calculateTax());
-        
-    </script>
+        */
+    </script-->
 </head>
 <body>
 

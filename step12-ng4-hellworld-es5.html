@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World with Angular4</title>
+    <script src="node_modules/core-js/client/shim.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script src="node_modules/@angular/core/bundles/core.umd.js"></script>
+    <script src="node_modules/@angular/common/bundles/common.umd.js"></script>
+    <script src="node_modules/@angular/compiler/bundles/compiler.umd.js"></script>
+    <script src="node_modules/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
+    <script src="node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
+    <script>
+        // component
+        // dom element which is used by our component
+        // module
+        // module is bootstraped to your app
+
+        var MyComp = ng.core.Component({
+            selector : "my-app",
+            template : "<h1> Welcome to your life </h1>"
+        }).Class({
+            constructor : function(){
+                // empty
+            }
+        });
+        var MyMod = ng.core.NgModule({
+            imports : [ng.platformBrowser.BrowserModule],
+            declarations : [MyComp],
+            bootstrap : [MyComp]
+        }).Class({
+            constructor : function(){
+                // empty
+            }
+        });
+
+        window.onload = function(){
+            ng.platformBrowserDynamic
+                .platformBrowserDynamic()
+                .bootstrapModule(MyMod);
+        }
+    </script>
+</head>
+<body>
+    <my-app></my-app>
+</body>
+</html>
