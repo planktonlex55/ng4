@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World with Angular4</title>
+    <script src="node_modules/core-js/client/shim.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script src="node_modules/@angular/core/bundles/core.umd.js"></script>
+    <script src="node_modules/@angular/common/bundles/common.umd.js"></script>
+    <script src="node_modules/@angular/compiler/bundles/compiler.umd.js"></script>
+    <script src="node_modules/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
+    <script src="node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
+    <script>
+        // component
+        // dom element which is used by our component
+        // module
+        // module is bootstraped to your app
+
+        var MyComp = ng.core.Component({
+            selector : "my-app",
+            template : "<h1> {{ message }} <hero></hero> </h1>"
+        }).Class({
+            constructor : function(){
+                this.message = "Welcome to your life";
+            }
+        });
+        var childComp = ng.core.Component({
+            selector : "hero",
+            template : "<em>Hello from {{ heroDay }}</em>"
+        }).Class({
+            constructor : function(){
+                // empty
+                this.heroDay = this.heroOfDay();
+
+            },
+            heroOfDay : function(){
+                var heroes = [
+                    {title : "Batman",      city : "Gotham",        power : 7},
+                    {title : "Superman",    city : "Metropolis",    power : 8},
+                    {title : "Wonder Women",city : "Gotham",        power : 8},
+                    {title : "Spiderman",   city : "New York",      power : 7},
+                    {title : "Phantom",     city : "Bhangala",      power : 6}
+                ];
+                var randomHero = Math.round(Math.random()*heroes.length);
+                console.log(randomHero);
+                return heroes[randomHero].title;
+            // return this.heroes[Math.floor(Math.random()*5)].title
+        }
+        });
+        var MyMod = ng.core.NgModule({
+            imports : [ng.platformBrowser.BrowserModule],
+            declarations : [MyComp,childComp],
+            bootstrap : [MyComp]
+        }).Class({
+            constructor : function(){
+                // empty
+            }
+        });
+        window.onload = function(){
+            ng.core.enableProdMode();
+            ng.platformBrowserDynamic
+                .platformBrowserDynamic()
+                .bootstrapModule(MyMod);
+        }
+    </script>
+</head>
+<body>
+    <my-app></my-app>
+</body>
+</html>
