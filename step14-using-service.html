@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World with Angular4</title>
+    <script src="node_modules/core-js/client/shim.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+
+    <script src="node_modules/@angular/core/bundles/core.umd.js"></script>
+    <script src="node_modules/@angular/common/bundles/common.umd.js"></script>
+    <script src="node_modules/@angular/compiler/bundles/compiler.umd.js"></script>
+    <script src="node_modules/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
+    <script src="node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
+    <script>
+        var heroes = [
+            {title : "Batman",      city : "Gotham",        power : 7},
+            {title : "Superman",    city : "Metropolis",    power : 8},
+            {title : "Wonder Women",city : "Gotham",        power : 8},
+            {title : "Spiderman",   city : "New York",      power : 7},
+            {title : "Phantom",     city : "Bhangala",      power : 6}
+        ];
+        //-------------------------------------------
+        var HeroService = ng.core.Class({
+            constructor : function(){
+                this.heroes = heroes;
+            },
+            generateHero : function(){
+                var randomHero = Math.floor(Math.random()*heroes.length);
+                console.log(randomHero);
+                return heroes[randomHero].title;
+            }
+
+        });
+        //-------------------------------------------
+        var MainComp = ng.core.Component({
+            selector : "hero-app",
+            template : "<h1>{{ title }}</h1><hero></hero>"
+        }).Class({
+            constructor : function(){
+                this.title = "Welcome to Synechron App"
+            }
+        });
+        //-------------------------------------------
+        var HeroComp = ng.core.Component({
+            selector : "hero",
+            template : "<ul><li>{{ heroOfDay }}</li></ul>"
+        }).Class({
+            constructor : function(){
+                var hs = new HeroService();
+                this.heroOfDay = hs.generateHero();
+            }
+
+        });
+        //-------------------------------------------
+        var MainModule = ng.core.NgModule({
+            imports : [ng.platformBrowser.BrowserModule],
+            declarations : [MainComp,HeroComp],
+            bootstrap : [MainComp]
+        }).Class({
+            constructor : function(){
+                // empty
+            }
+        });
+        //-------------------------------------------
+        window.onload = function(){
+            ng.core.enableProdMode();
+            ng.platformBrowserDynamic
+            .platformBrowserDynamic()
+            .bootstrapModule(MainModule);
+        }
+    </script>
+</head>
+<body>
+    <hero-app></hero-app>
+</body>
+</html>
